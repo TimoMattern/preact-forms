@@ -1,7 +1,7 @@
 import {useState} from "preact/hooks";
 
 interface BaseProps {
-  name: string;
+  name?: string;
 }
 
 interface InputProps extends BaseProps {
@@ -20,6 +20,7 @@ interface CheckboxProps extends BaseProps {
 
 export function Input({value, onInput, ...props}: InputProps) {
   const [currentValue, setCurrentValue] = useState(value);
+
   const handleInput = (event: Event) => {
     const {value} = event.target as HTMLInputElement;
     setCurrentValue(value);
@@ -31,6 +32,7 @@ export function Input({value, onInput, ...props}: InputProps) {
 
 export function Checkbox({checked, onChange, label, ...props}: CheckboxProps) {
   const [currentChecked, setCurrentChecked] = useState(checked);
+
   const handleChange = (event: Event) => {
     const {checked} = event.target as HTMLInputElement;
     setCurrentChecked(checked);

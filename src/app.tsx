@@ -1,7 +1,6 @@
 import './app.css'
 import {Checkbox, Input} from "./Input";
 import {useForm} from "./useForm";
-import {useRef} from "preact/hooks";
 
 class User {
   public username: string;
@@ -50,25 +49,25 @@ export function App() {
       <form>
         <fieldset>
           <legend>Account information</legend>
-          <Input name="user.email" type="email" onInput={handleFormUpdate} value={user.email}
+          <Input type="email" onInput={handleFormUpdate("user.email")} value={user.email}
                  placeholder="Enter your e-mail address"/>
-          <Input name="user.username" type="text" onInput={handleFormUpdate} value={user.username}
+          <Input type="text" onInput={handleFormUpdate("user.username")} value={user.username}
                  placeholder="Enter your username"/>
-          <Input name="user.password" type="password" onInput={handleFormUpdate} value={user.password}
+          <Input type="password" onInput={handleFormUpdate("user.password")} value={user.password}
                  placeholder="Enter your password"/>
         </fieldset>
         <fieldset>
           <legend>Personal information</legend>
-          <Input name="user.address.street" type="text" onInput={handleFormUpdate} value={user.address.street}
+          <Input type="text" onInput={handleFormUpdate("user.address.street")} value={user.address.street}
                  placeholder="Enter your street name"/>
-          <Input name="user.address.zipCode" type="text" onInput={handleFormUpdate} value={user.address.zipCode}
+          <Input type="text" onInput={handleFormUpdate("user.address.zipCode")} value={user.address.zipCode}
                  placeholder="Enter your zip code"/>
         </fieldset>
         <fieldset>
           <legend>Legal</legend>
-          <Checkbox name="legal.newsletter" onChange={handleFormUpdate} checked={legal.newsletter}
+          <Checkbox onChange={handleFormUpdate("legal.newsletter")} checked={legal.newsletter}
                     label="Sign me up for that fancy newsletter"/>
-          <Checkbox name="legal.privacy" onChange={handleFormUpdate} checked={legal.privacy}
+          <Checkbox onChange={handleFormUpdate("legal.privacy")} checked={legal.privacy}
                     label="I have read the privacy policy"/>
         </fieldset>
         <button type="button" onClick={printFormState}>Submit</button>
